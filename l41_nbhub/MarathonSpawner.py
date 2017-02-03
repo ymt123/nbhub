@@ -130,7 +130,7 @@ class MarathonSpawner(Spawner):
         parameters = [{'key':'workdir', 'value':os.path.join(self.home_basepath, self.user.name)}]
         parameters.append({'key': 'device', 'value': '/dev/nvidiactl'})
         parameters.append({'key': 'device', 'value': '/dev/nvidia-uvm'})
-        parameters.append({'key': 'device', 'value': '/dev/nvidia%d'%gpu_id})
+        parameters.append({'key': 'device', 'value': '/dev/nvidia%d:/dev/nvidia0'%gpu_id})
         parameters.append({'key': 'volume-driver', 'value': 'nvidia-docker'})
         parameters.append({'key': 'volume', 'value': 'nvidia_driver_{}:/usr/local/nvidia:ro'.format(driver_version)})
         cmd = "/bin/bash /srv/ganymede_nbserver/ganymede_nbserver.sh"
